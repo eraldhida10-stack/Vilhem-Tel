@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vilhelm Teli – Friedrich Schiller</title>
+<style>
+:root{--bg:#07090f;--bg2:#0d1526;--card:#111c33;--gold:#c9a24b;--gold2:#e8cf8a;--beige:#e9dfc8;--mut:#a9a392;--red:#b4443a;--ok:#4f9d6b;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--beige);font:17px/1.7 Georgia,'Times New Roman',serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Palatino Linotype',Palatino,Georgia,serif;font-weight:700;letter-spacing:.04em;color:var(--gold2)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;gap:6px;align-items:center;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 10px;background:rgba(7,9,15,.88);backdrop-filter:blur(8px);border-bottom:1px solid #c9a24b44;overflow-x:auto;white-space:nowrap}
+nav b{color:var(--gold);margin-right:8px;font-size:15px}
+nav a{color:var(--beige);text-decoration:none;font-size:14px;padding:5px 10px;border-radius:20px;transition:.25s}
+nav a:hover{background:var(--gold);color:#000}
+section{padding:96px 6vw 70px;max-width:1150px;margin:auto}
+h2{font-size:clamp(28px,5vw,44px);text-align:center;margin-bottom:8px}
+h2+.sub{text-align:center;color:var(--mut);margin-bottom:38px;font-style:italic}
+.rv{opacity:0;transform:translateY(34px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+#fillimi{max-width:none;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:linear-gradient(#0a1428,#1b2b4a 55%,#3a3f4f);padding:90px 20px 40px}
+.ly{position:absolute;left:-5%;width:110%;bottom:0;pointer-events:none;transition:transform .2s}
+#fillimi h1{font-size:clamp(46px,12vw,140px);line-height:1;text-shadow:0 0 40px #c9a24b66;position:relative;z-index:2}
+.tag{font-size:clamp(18px,3.4vw,30px);font-style:italic;margin:18px 0 8px;position:relative;z-index:2}
+.au{letter-spacing:.35em;color:var(--gold);font-size:14px;text-transform:uppercase;position:relative;z-index:2}
+.btn{display:inline-block;margin-top:34px;padding:14px 34px;border:2px solid var(--gold);background:#0008;color:var(--gold2);font:inherit;letter-spacing:.15em;cursor:pointer;border-radius:3px;transition:.3s;position:relative;z-index:2;text-transform:uppercase}
+.btn:hover{background:var(--gold);color:#000;transform:translateY(-3px);box-shadow:0 8px 30px #c9a24b55}
+.btn.sm{margin:0;padding:9px 20px;font-size:13px}
+.snow{position:absolute;inset:0;pointer-events:none}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.box{background:linear-gradient(160deg,var(--card),#0b1223);border:1px solid #c9a24b33;border-radius:10px;padding:24px}
+.two{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
+.badge{display:inline-block;background:#c9a24b22;border:1px solid #c9a24b66;color:var(--gold2);padding:2px 12px;border-radius:20px;font-size:13px;margin:3px 3px 0 0}
+.works li{margin:6px 0 6px 20px}
+.works b{color:var(--gold2)}
+.chap{border-left:3px solid var(--gold);padding:4px 0 4px 20px;margin:0 0 26px}
+.chap h3{font-size:20px;margin-bottom:4px}
+.chap .n{color:var(--gold);font-size:13px;letter-spacing:.2em}
+.card{cursor:pointer;text-align:center;transition:.35s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);border-color:var(--gold);box-shadow:0 14px 40px #c9a24b30}
+.por{width:110px;height:110px;margin:0 auto 12px;border-radius:50%;background:radial-gradient(circle,#1e3358,#0a1226);border:2px solid var(--gold);display:grid;place-items:center;font-size:52px}
+.card h3{font-size:22px}
+.role{color:var(--mut);font-size:15px;font-style:italic}
+.hint{color:var(--gold);font-size:12px;letter-spacing:.2em;margin-top:10px;text-transform:uppercase}
+#modal{position:fixed;inset:0;background:#000c;z-index:100;display:none;place-items:center;padding:20px}
+#modal.on{display:grid}
+#modal .box{max-width:560px;max-height:85vh;overflow:auto;position:relative;animation:pop .35s}
+@keyframes pop{from{transform:scale(.88);opacity:0}}
+#modal .x{position:absolute;right:14px;top:8px;font-size:28px;cursor:pointer;background:none;border:0;color:var(--gold)}
+.th{perspective:900px;height:210px;cursor:pointer}
+.th>div{position:relative;height:100%;transition:.7s;transform-style:preserve-3d}
+.th.fl>div{transform:rotateY(180deg)}
+.th .f,.th .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;padding:20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid #c9a24b44}
+.th .f{background:linear-gradient(160deg,#16264a,#0a1226)}
+.th .f span{font-size:46px}
+.th .b{background:linear-gradient(160deg,#2a2210,#0f0c06);transform:rotateY(180deg);font-size:15px;line-height:1.55}
+#tl{display:flex;gap:0;overflow-x:auto;padding:20px 0 30px;position:relative}
+#tl::before{content:"";position:absolute;left:0;right:0;top:46px;height:2px;background:var(--gold);opacity:.5;min-width:900px}
+.ev{flex:0 0 120px;text-align:center;background:none;border:0;color:var(--beige);font:inherit;cursor:pointer;position:relative}
+.ev i{display:block;width:52px;height:52px;margin:0 auto 10px;border-radius:50%;background:var(--bg2);border:2px solid var(--gold);display:grid;place-items:center;font-style:normal;font-size:22px;transition:.3s;position:relative}
+.ev small{font-size:13px;line-height:1.3;display:block}
+.ev.on i,.ev:hover i{background:var(--gold);transform:scale(1.18)}
+#evd{min-height:140px}
+#evd h3{margin-bottom:8px}
+.q{font-size:20px;text-align:center;font-style:italic;color:var(--beige);line-height:1.5}
+.q small{display:block;font-size:13px;color:var(--gold);margin-top:10px;font-style:normal;letter-spacing:.1em}
+.q em{display:block;font-size:15px;color:var(--mut);margin-top:8px}
+.ia{border-style:dashed;background:#0d1526}
+.ia .q{font-style:normal;font-size:18px}
+.lab{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;text-align:center}
+.bar{height:8px;background:#fff1;border-radius:5px;overflow:hidden;margin-bottom:20px}
+.bar div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:.5s}
+.opt{display:block;width:100%;text-align:left;margin:10px 0;padding:13px 16px;background:#ffffff08;border:1px solid #c9a24b44;color:var(--beige);font:inherit;font-size:16px;border-radius:6px;cursor:pointer;transition:.25s}
+.opt:hover:not(:disabled){background:#c9a24b22;transform:translateX(5px)}
+.opt.ok{background:#4f9d6b44;border-color:var(--ok)}
+.opt.no{background:#b4443a44;border-color:var(--red)}
+#fb{min-height:30px;margin-top:10px;font-weight:700}
+.score{font-size:64px;color:var(--gold2);text-align:center;font-family:Palatino,Georgia,serif}
+#cv{width:100%;max-width:760px;display:block;margin:auto;border:2px solid var(--gold);border-radius:8px;touch-action:none;cursor:crosshair;background:#0a1428}
+.hud{display:flex;justify-content:space-between;max-width:760px;margin:0 auto 10px;color:var(--gold2);flex-wrap:wrap;gap:6px}
+footer{text-align:center;padding:50px 20px 70px;border-top:1px solid #c9a24b44;color:var(--mut);background:#050710}
+footer b{color:var(--gold2);display:block;font-size:22px;margin-bottom:6px;letter-spacing:.1em}
+#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;background:var(--gold);color:#000;border:0;font-size:22px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:60}
+#top.on{opacity:1;pointer-events:auto}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--gold);z-index:70;width:0}
+p+p{margin-top:14px}
+@media(prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<nav><b>⚜ TELI</b><a href="#fillimi">Fillimi</a><a href="#autori">Autori</a><a href="#vepra">Vepra</a><a href="#personazhet">Personazhet</a><a href="#temat">Temat</a><a href="#kronologjia">Kronologjia</a><a href="#kuizi">Kuizi</a><a href="#loja">Loja</a><a href="#citimet">Citimet</a><a href="#mesimi">Sot</a></nav>
+
+<section id="fillimi">
+<canvas class="snow" id="snow"></canvas>
+<svg class="ly" id="l1" viewBox="0 0 1200 400" preserveAspectRatio="none" style="height:55%"><path d="M0 400V240l120-110 90 70 150-150 130 130 100-80 160 160 120-110 140 120 90-60 100 90v160z" fill="#16233f"/><path d="M200 130l-40 40 30 10 20-20zM360 50l-50 60 40 10 30-30zM830 20 780 90l40 10 40-40z" fill="#e9eef7" opacity=".8"/></svg>
+<svg class="ly" id="l2" viewBox="0 0 1200 300" preserveAspectRatio="none" style="height:38%"><path d="M0 300V180l100-60 120 80 140-90 140 100 120-70 150 90 140-80 130 70 160-50v230z" fill="#0c1427"/></svg>
+<svg class="ly" id="l3" viewBox="0 0 1200 200" preserveAspectRatio="none" style="height:22%"><path d="M0 200V90l60-50 30 50 40-60 40 70 60-80 40 80 50-60 50 80H1200v130z" fill="#050810"/><g fill="#03050a"><path d="M1040 200V80h24V60h14V80h22v120z"/><path d="M1000 200V100h20V80h14v20h14v100z"/></g></svg>
+<h1>VILHELM TELI</h1>
+<div class="tag">„Liria nuk dhurohet. Ajo fitohet.“</div>
+<div class="au">Friedrich Schiller</div>
+<button class="btn" onclick="document.getElementById('autori').scrollIntoView()">Eksploro veprën ➶</button>
+</section>
+
+<section id="autori"><h2 class="rv">Friedrich Schiller</h2><p class="sub rv">Poeti i lirisë</p>
+<div class="two rv">
+<div><p>Johann Christoph Friedrich Schiller lindi më 10 nëntor 1759 në Marbach am Neckar (Württemberg) dhe vdiq më 9 maj 1805 në Vajmar. Për shkak të vullnetit të dukës së Württembergut, ai studioi në akademinë ushtarake „Karlsschule“, ku u përgatit fillimisht për mjek, ndërsa fshehurazi lexonte letërsi dhe shkruante.</p>
+<p>Dramën e parë, „Hajdutët“ (1781), e shkroi ende si ushtarak mjeku. Pas suksesit të saj ai ia mbathi nga Württembergu dhe jetoi me vështirësi financiare. Më vonë u bë profesor i historisë në Jena, ku shkroi edhe studime historike dhe filozofike, ndër to për Luftën Tridhjetëvjeçare.</p>
+<p>Miqësia dhe bashkëpunimi me Johann Wolfgang von Goethe, nga viti 1794, e çuan letërsinë gjermane te periudha e Klasicizmit të Vajmarit. „Vilhelm Teli“ është drama e tij e fundit e plotësuar dhe u shfaq për herë të parë më 17 mars 1804 në Vajmar.</p></div>
+<div class="box"><h3>Veprat më të njohura</h3><ul class="works" style="list-style:none">
+<li><b>Hajdutët</b> (1781) – dramë e rebelimit kundër padrejtësisë</li>
+<li><b>Dredhi dhe dashuri</b> (1784) – tragjedi borgjeze</li>
+<li><b>Oda e Gëzimit</b> (1785) – poezi, bazë e tekstit të Simfonisë së 9-të të Bethovenit</li>
+<li><b>Don Karlos</b> (1787) – dramë për lirinë e mendimit</li>
+<li><b>Valenshtajni</b> (1799) – trilogji dramatike</li>
+<li><b>Maria Stuart</b> (1800) dhe <b>Virgjëresha e Orleansit</b> (1801)</li>
+<li><b>Vilhelm Teli</b> (1804)</li></ul>
+<p style="margin-top:14px"><b style="color:var(--gold2)">Ndikimi:</b> Schiller formësoi teatrin gjerman dhe idealin e lirisë dhe të dinjitetit njerëzor. Poezia e tij e frymëzoi Bethovenin, ndërsa „Vilhelm Teli“ u kthye në simbol të rezistencës ndaj tiranisë; Rossini e shndërroi subjektin në opera (1829).</p></div>
+</div></section>
+
+<section id="vepra"><h2 class="rv">Përmbledhja e veprës</h2><p class="sub rv">Pesë akte, një popull, një mollë</p>
+<div class="chap rv"><div class="n">SFONDI HISTORIK</div><h3>Zvicra nën hijen e Habsburgëve</h3><p>Drama zhvillohet në fillim të shek. XIV, në kantonet e Uri-t, Schwyz-it dhe Unterwalden-it rreth Liqenit të Katër Kantoneve. Këto vende kishin privilegje autonomie, por shtëpia austriake e Habsburgëve kërkonte t’i nënshtronte plotësisht. Të dërguarit e saj, bailifët, sundonin me dhunë dhe poshtërim. Tradita e Zvicrës vendos betimin e parë të bashkimit në vitin 1291; Schiller e përdor këtë legjendë dhe e ndërton si dramë poetike (jo si kronikë të saktë historike).</p></div>
+<div class="chap rv"><div class="n">AKTI I</div><h3>Padrejtësia dhe fillimi i bashkimit</h3><p>Baumgarteni vret një ndihmës të bailifit që donte t’i poshtëronte gruan dhe ikën; Teli e kalon me barkë përtej liqenit gjatë stuhisë, kur askush tjetër nuk guxon. Në Unterwalden, Landenbergeri ia merr kafshët Melchtalit dhe verbon të atin. Në Schwyz, Stauffacheri, i nxitur nga gruaja e tij Gertrude, vendos të kërkojë miq për rezistencë.</p></div>
+<div class="chap rv"><div class="n">AKTI I–II</div><h3>Betimi në Rütli</h3><p>Natën, burra nga tri kantonet takohen në livadhin Rütli dhe betohen të jenë një popull vëllazërish dhe të mbrojnë lirinë e tyre. Ata vendosin të veprojnë bashkë dhe të shmangin gjakderdhjen pa nevojë. Edhe fisniku Rudenz, nipi i Attinghausenit, ndahet nga Austria dhe bashkohet me popullin.</p></div>
+<div class="chap rv"><div class="n">AKTI III</div><h3>Kapela dhe molla</h3><p>Gessleri vendos në Altdorf një kapele mbi shtyllë dhe urdhëron që çdokush që kalon t’i përkulet. Teli e kalon pranë saj pa u përkulur. Si ndëshkim, Gessleri e detyron të qëllojë me hark një mollë mbi kokën e të birit, Walterit. Teli e godet mollën. Kur Gessleri pyet pse mbante shigjetë të dytë, Teli i përgjigjet se do ta kishte drejtuar ndaj tij nëse do ta kishte goditur të birin. Gessleri e arreston.</p></div>
+<div class="chap rv"><div class="n">AKTI IV</div><h3>Stuhia dhe kurthi</h3><p>Në barkë, nën stuhi, Gessleri urdhëron lirimin e duarve të Telit që ta drejtojë. Teli e çon barkën te një shkëmb të sheshtë, hidhet në breg dhe e shtyn barkën prapa. Pastaj e pret Gesslerin në rrugën e ngushtë (Hohle Gasse) pranë Küssnachtit dhe e vret me shigjetë, si një mbrojtës të familjes së tij.</p></div>
+<div class="chap rv"><div class="n">AKTI V</div><h3>Liria</h3><p>Lajmi i vrasjes shpërndahet dhe kantonet ngrihen: kështjellat e bailifëve shembën. Duka i Swabisë, Johannes Parricida, që kishte vrarë vetë perandorin Albrecht për interesa personale, kërkon strehë te Teli. Teli e dallon qartë veprën e tij, të bërë për të mbrojtur familjen, nga vrasja e ftohtë për pushtet dhe e dëbon me ndihmë të kufizuar. Në fund, Rudenzi u jep lirinë bujqve të vet, dhe populli e përshëndet Telin si shpëtimtar.</p></div>
+</section>
+
+<section id="personazhet"><h2 class="rv">Personazhet</h2><p class="sub rv">Kliko një kartë për ta hapur</p><div class="grid" id="chars"></div></section>
+
+<section id="temat"><h2 class="rv">Temat dhe mesazhet</h2><p class="sub rv">Kthe kartat për të lexuar më shumë</p><div class="grid" id="themes"></div></section>
+
+<section id="kronologjia"><h2 class="rv">Kronologjia e ngjarjeve</h2><p class="sub rv">Kliko një moment</p><div id="tl" class="rv"></div><div class="box" id="evd"></div></section>
+
+<section id="kuizi"><h2 class="rv">Kuizi</h2><p class="sub rv">9 pyetje për të testuar njohuritë</p><div class="box" id="quiz" style="max-width:720px;margin:auto"></div></section>
+
+<section id="loja"><h2 class="rv">Molla mbi kokë</h2><p class="sub rv">Lëviz miun ose gishtin për të synuar, kliko ose preke për të gjuajtur. Ke 5 shigjeta, por kujdes: shenja lëkundet!</p>
+<div class="hud"><span>Shigjeta: <b id="ar">5</b></span><span>Goditje: <b id="hit">0</b></span><span id="gm"></span></div>
+<canvas id="cv" width="760" height="400"></canvas>
+<div style="text-align:center;margin-top:16px"><button class="btn sm" id="gr">Rifillo lojën</button></div></section>
+
+<section id="citimet"><h2 class="rv">Citime dhe mesazhe</h2><p class="sub rv">Të ndara qartë: citime autentike nga vepra dhe interpretime tona</p>
+<div class="lab">Citime autentike nga „Vilhelm Teli“ (gjermanisht, me përkthim në shqip)</div>
+<div class="grid" id="quotes"></div>
+<div class="lab" style="margin-top:44px">Mesazhe interpretuese (nuk janë citime të Schillerit)</div>
+<div class="grid" id="inter"></div></section>
+
+<section id="mesimi"><h2 class="rv">Çfarë na mëson Vilhelm Teli sot?</h2><p class="sub rv">Një refleksion</p>
+<div class="box rv" style="max-width:780px;margin:auto"><p>Vepra e Schillerit nuk është vetëm një histori për një gjuajtës të shkathët. Ajo tregon se liria nuk është diçka që mbahet përgjithmonë pa u kujdesur për të. Një shoqëri e lirë kërkon qytetarë që nuk heshtin përballë padrejtësisë, që mbështesin njëri-tjetrin dhe që e dinë se pushteti pa kufij përfundon në poshtërim.</p>
+<p>Sot tirania nuk ka gjithmonë kështjellë dhe kapele mbi shtyllë. Ajo mund të marrë formën e frikës, të censurës, të shpërdorimit të pushtetit ose të indiferencës. Guximi modern shpesh është më i qetë: të thuash të vërtetën, të mbrojsh dikë që po poshtërohet, të votosh me ndërgjegje, të mos heshtësh kur tallet dikush i dobët me një të dobët.</p>
+<p>Vetë Teli na kujton edhe diçka tjetër: rezistenca ka kufij etikë. Ai e dallon veprën e tij nga vrasja për interes personal. Liria e vërtetë mbrohet me drejtësi dhe përgjegjësi.</p></div></section>
+
+<footer><b>VILHELM TELI</b>Projekt letrar mbi veprën e Friedrich Schillerit (1804)<br><small>PUNOI: KLASA VI-B</small></footer>
+<button id="top" onclick="scrollTo({top:0})" aria-label="Kthehu në fillim">↑</button>
+<div id="modal" onclick="if(event.target===this)this.classList.remove('on')"><div class="box"><button class="x" onclick="document.getElementById('modal').classList.remove('on')">×</button><div id="mb"></div></div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const CH=[
+{n:'Vilhelm Teli',r:'Gjuajtësi dhe heroi i popullit',i:'🏹',t:['I qetë','I fortë','Pragmatik','Prind i dashur'],x:'Alpinist dhe gjuajtës i shkëlqyer, Teli jeton larg politikës dhe preferon veprimin e drejtpërdrejtë. Nuk merr pjesë në Rütli, por është ai që e kthen padrejtësinë në veprim të përmbushur. Pas poshtërimit me mollën, mbrojtja e familjes e shtyn të vrasë Gesslerin. Në fund e dallon veprën e tij nga vrasja për pushtet.',m:'Është simboli i guximit individual dhe i bashkëpunimit me popullin.'},
+{n:'Gessleri',r:'Bailifi austriak i Uri-t dhe Schwyz-it',i:'👑',t:['Arrogant','Mizor','I etur për pushtet','Poshtërues'],x:'Hermann Gessler përfaqëson pushtetin e Habsburgëve. Ai vendos kapelën mbi shtyllë për të provuar nënshtrimin e popullit dhe e detyron Telin të qëllojë mollën. Sundimi i tij mbështetet te frika dhe poshtërimi.',m:'Është përfaqësuesi i tiranisë, që synon të thyejë dinjitetin e njeriut.'},
+{n:'Hedviga',r:'Gruaja e Telit, nëna e Walterit',i:'🕊️',t:['E dashur','E sigurt','E fortë','E ndershme'],x:'Hedviga është vajza e Walter Fürstit. Ajo ka frikë për burrin e saj, por e kupton drejtësinë e kauzës. Pas arrestimit të Telit, ajo ngre zërin para Gesslerit për të kërkuar mëshirë.',m:'Përfaqëson dashurinë familjare dhe forcën e qetë të gruas.'},
+{n:'Walter Fürst',r:'Një prej udhëheqësve të Uri-t, vjehrri i Telit',i:'🛡️',t:['I matur','I besueshëm','I drejtë','Atdhedashës'],x:'Walter Fürst është një nga tre burrat e Rütli-t (me Stauffacherin dhe Melchtalin). Ai strehon Melchtalin dhe e bën shtëpinë e tij vend takimi. Ndihmon të mbajë qetësinë e kantonit dhe të organizojë rezistencën.',m:'Përfaqëson urtësinë e kujdesshme dhe bashkimin e popullit.'},
+{n:'Werner Stauffacher',r:'Fshatar i pasur nga Schwyz, udhëheqës i rezistencës',i:'🏔️',t:['I mençur','I kujdesshëm','Mbajtës i bashkimit','I drejtë'],x:'Stauffacheri është nxitur nga Gertrude, gruaja e tij, për të mos pranuar padrejtësinë. Ai udhëton nëpër kantone për të gjetur aleatë dhe është një nga tri burrat që nisin bashkimin në Rütli.',m:'Tregon që liria fillon me fjalën, ndërgjegjen dhe bashkimin.'},
+{n:'Arnold von Melchtal',r:'I ri nga Unterwalden, vëllazër i betimit',i:'🔥',t:['I ri','Pasionant','I guximshëm','Dashamirës i të atit'],x:'Pasi Landenbergeri i merr kafshët dhe e verbon të atin, Melchtali ikën dhe bashkohet me të tjerët. Tregon dhimbjen personale që i shtyn njerëzit drejt rebelimit, por mëson të kontrollojë zemërimin për qëllimin e përbashkët.',m:'Përfaqëson të rinjtë dhe forcën emocionale të rezistencës.'}];
+$('#chars').innerHTML=CH.map((c,k)=>`<div class="box card rv" onclick="op(${k})" tabindex="0" onkeydown="if(event.key==='Enter')op(${k})"><div class="por">${c.i}</div><h3>${c.n}</h3><div class="role">${c.r}</div><div style="margin-top:10px">${c.t.slice(0,2).map(x=>`<span class="badge">${x}</span>`).join('')}</div><div class="hint">Hap detajet</div></div>`).join('');
+function op(k){const c=CH[k];$('#mb').innerHTML=`<div class="por">${c.i}</div><h3 style="text-align:center;font-size:28px">${c.n}</h3><p class="role" style="text-align:center">${c.r}</p><p style="margin-top:14px"><b style="color:var(--gold2)">Karakteristikat:</b><br>${c.t.map(x=>`<span class="badge">${x}</span>`).join('')}</p><p><b style="color:var(--gold2)">Në vepër:</b> ${c.x}</p><p><b style="color:var(--gold2)">Rëndësia:</b> ${c.m}</p>`;$('#modal').classList.add('on')}
+addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('on')});
+const TH=[['🕊️','Liria','Teli e do lirinë më shumë se rehatinë. Populli zviceran mbron të drejtat e tij të vjetra dhe jo një favor të ri.'],['⚖️','Drejtësia','Tirania e Gesslerit e shkel ligjin dhe dinjitetin. Betimi në Rütli kërkon rend të drejtë dhe jo hakmarrje të verbër.'],['🦁','Guximi','Nga mbrojtja e Baumgartenit në stuhi te gjuajtja e molës, drama shfaq guximin si përgjegjësi ndaj tjetrit.'],['⛓️','Rezistenca ndaj tiranisë','Rezistenca e vërtetë është e përbashkët: tri kantone bashkohen dhe e fitojnë lirinë së bashku.'],['🏡','Dashuria familjare','Hedviga dhe Walteri e kthejnë Telin nga heroi legjendar te një babë që mbron fëmijën e tij.'],['🏔️','Sakrifica për atdheun','Vëllazëria në Rütli dhe vdekja e Attinghausenit tregojnë se atdheu kërkon sakrifica nga të gjithë.']];
+$('#themes').innerHTML=TH.map(t=>`<div class="th rv" onclick="this.classList.toggle('fl')"><div><div class="f"><span>${t[0]}</span><h3>${t[1]}</h3><small style="color:var(--mut)">Kliko për të kthyer</small></div><div class="b">${t[2]}</div></div></div>`).join('');
+const EV=[['🏔️','Baumgarteni ikën','Baumgarteni vret një ndihmës të bailifit për të mbrojtur gruan e tij. Teli e kalon me barkë përtej liqenit gjatë stuhisë.'],['🔥','Melchtali verbohet','Landenbergeri i merr kafshët Melchtalit dhe verbon të atin. Melchtali ikën dhe kërkon ndihmë.'],['🤝','Rütli','Burra nga tri kantonet betohen të jenë një popull vëllazërish dhe të mbrojnë lirinë e tyre.'],['🎩','Kapela në Altdorf','Gessleri vendos kapelën mbi shtyllë dhe e detyron popullin t’i përkulet. Teli nuk përkulet.'],['🍎','Molla','Gessleri e detyron Telin të qëllojë mollën mbi kokën e Walterit. Teli e godet dhe pranon se kishte shigjetë të dytë për Gesslerin.'],['⛈️','Stuhia','Në liqen, Teli drejton barkën dhe kërcen te një shkëmb, duke i ikur Gesslerit.'],['🎯','Hohle Gasse','Në një rrugë të ngushtë pranë Küssnachtit, Teli e vret Gesslerin me shigjetë.'],['⚔️','Kantonet ngrihen','Kështjellat e bailifëve shemben dhe populli çlirohet nga zgjedha.'],['🌅','Lirimi','Rudenzi lëshon në liri bujqit e tij dhe populli e përshëndet Telin. Teli refuzon të ndihmojë Parricidën, vrasësin e perandorit.']];
+$('#tl').innerHTML=EV.map((e,k)=>`<button class="ev" onclick="ev(${k})"><i>${e[0]}</i><small>${e[1]}</small></button>`).join('');
+function ev(k){document.querySelectorAll('.ev').forEach((b,i)=>b.classList.toggle('on',i===k));$('#evd').innerHTML=`<h3>${k+1}. ${EV[k][1]}</h3><p>${EV[k][2]}</p>`}ev(0);
+const Q=[['Kush e shkroi dramën „Vilhelm Teli“?',['Goethe','Schiller','Lessing','Heine'],1],['Në cilin vit u shfaq për herë të parë drama?',['1784','1794','1804','1824'],2],['Në çfarë ambienti zhvillohet drama?',['Në Alpet zvicerane','Në Vjenë','Në Paris','Në Prusi'],0],['Kë përfaqëson Gessleri?',['Mbretin francez','Pushtetin e Habsburgëve','Kishën','Fshatarët zviceranë'],1],['Çfarë vendos Gessleri mbi një shtyllë në Altdorf?',['Një flamur','Një shpatë','Një kapele','Një kurorë'],2],['Çfarë e detyron Gessleri Telin të qëllojë?',['Një shpend','Një mollë mbi kokën e djalit','Një flamur','Një shigjetë tjetër'],1],['Pse kishte Teli shigjetë të dytë?',['Për ta ruajtur','Për ta vrarë Gesslerin po të godiste djalin','Për ta shtuar rezultatin','Për gjuetinë'],1],['Kush është Hedviga?',['Motra e Telit','Nëna e Gesslerit','Gruaja e Telit','Gruaja e Stauffacherit'],2],['Çfarë bën Rudenzi në fund?',['U bashkohet Habsburgëve','Ua dhuron lirinë bujqve të tij','Ik në Austri','Vret Telin'],1]];
+let qi=0,qs=0;
+function qr(){const b=$('#quiz');if(qi>=Q.length){const p=Math.round(qs/Q.length*100);const m=p>=90?'Shkëlqyeshëm! Ti e njeh veprën si një mjeshtër i vërtetë.':p>=70?'Shumë mirë! Ke kuptuar mirë veprën.':p>=50?'Mirë, por rilexo disa pjesë dhe provo përsëri.':'Rilexo përmbledhjen dhe personazhet, pastaj provo përsëri!';b.innerHTML=`<div class="lab">Rezultati</div><div class="score">${qs}/${Q.length}</div><p style="text-align:center;font-size:24px;color:var(--gold2)">${p}%</p><p style="text-align:center;margin:12px 0 20px">${m}</p><div style="text-align:center"><button class="btn sm" onclick="qi=0;qs=0;qr()">Rifillo kuizin</button></div>`;return}
+const q=Q[qi];b.innerHTML=`<div class="bar"><div style="width:${qi/Q.length*100}%"></div></div><div class="lab">Pyetja ${qi+1} nga ${Q.length}</div><h3 style="font-size:21px;margin-bottom:12px">${q[0]}</h3>${q[1].map((o,k)=>`<button class="opt" data-k="${k}"><b>${'ABCD'[k]}.</b> ${o}</button>`).join('')}<div id="fb"></div>`;
+b.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{const k=+o.dataset.k;b.querySelectorAll('.opt').forEach(x=>x.disabled=true);b.querySelectorAll('.opt')[q[2]].classList.add('ok');if(k===q[2]){qs++;$('#fb').innerHTML='<span style="color:var(--ok)">✔ E saktë!</span>'}else{o.classList.add('no');$('#fb').innerHTML=`<span style="color:var(--red)">✘ E gabuar.</span> Përgjigjja e saktë: <b>${'ABCD'[q[2]]}</b>.`}
+$('#fb').innerHTML+=`<div style="margin-top:12px"><button class="btn sm" onclick="qi++;qr()">${qi===Q.length-1?'Shiko rezultatin':'Vazhdo →'}</button></div>`})}
+qr();
+const QT=[['Wir wollen sein ein einzig Volk von Brüdern, in keiner Not uns trennen und Gefahr.','Duam të jemi një popull i vetëm vëllazërish, që nuk ndahet në asnjë nevojë e rrezik.','Betimi i Rütli-t (akti II)'],['Der Starke ist am mächtigsten allein.','I forti është më i fuqishëm kur është vetëm.','Teli, akti I'],['Es kann der Frömmste nicht in Frieden bleiben, wenn es dem bösen Nachbar nicht gefällt.','Edhe më i drejti nuk mund të jetojë në paqe nëse fqinji i keq nuk e do.','Teli, akti IV'],['Ans Vaterland, ans teure, schließ dich an.','Lidhu me atdheun, me atë të shtrenjtin.','Attinghausen, akti II']];
+$('#quotes').innerHTML=QT.map(q=>`<div class="box q rv">„${q[0]}“<em>${q[1]} (përkthim)</em><small>${q[2]}</small></div>`).join('');
+const IN=['Liria kërkon kujdes të përditshëm, jo vetëm kujtim të së kaluarës.','Drejtësia fillon kur askush nuk është mbi ligjin.','Guximi nuk do të thotë të mos kesh frikë, por të veprosh përkundër saj.','Një popull që mbështet njëri-tjetrin është më i fortë se çdo kështjellë.'];
+$('#inter').innerHTML=IN.map(t=>`<div class="box ia q rv">${t}<small>INTERPRETIM – JO CITIM</small></div>`).join('');
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+addEventListener('scroll',()=>{const h=document.documentElement;$('#prog').style.width=(scrollY/(h.scrollHeight-innerHeight)*100)+'%';$('#top').classList.toggle('on',scrollY>600)});
+$('#fillimi').addEventListener('pointermove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;l1.style.transform=`translate(${x*-14}px,${y*-6}px)`;l2.style.transform=`translate(${x*-28}px,${y*-10}px)`;l3.style.transform=`translate(${x*-50}px,0)`});
+// snow
+(function(){const c=$('#snow'),x=c.getContext('2d');let W,H,P=[];function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;P=Array.from({length:70},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+.5,s:Math.random()+.3}))}rs();addEventListener('resize',rs);(function f(){x.clearRect(0,0,W,H);x.fillStyle='#fff9';P.forEach(p=>{p.y+=p.s;p.x+=Math.sin(p.y/40)*.4;if(p.y>H){p.y=-5;p.x=Math.random()*W}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()});requestAnimationFrame(f)})()})();
+// game
+const cv=$('#cv'),g=cv.getContext('2d');const AX=520,AY=215,BX=95,BY=300;let aim={x:380,y:210},arrows,hits,fly,over,t=0;
+function reset(){arrows=5;hits=0;fly=null;over=false;$('#ar').textContent=5;$('#hit').textContent=0;$('#gm').textContent='Synoje mollën!'}
+function pos(e){const r=cv.getBoundingClientRect();aim={x:(e.clientX-r.left)*cv.width/r.width,y:(e.clientY-r.top)*cv.height/r.height}}
+cv.addEventListener('pointermove',pos);
+cv.addEventListener('pointerdown',e=>{pos(e);if(over||fly)return;const sx=Math.sin(t/17)*12,sy=Math.cos(t/23)*12;fly={tx:aim.x+sx,ty:aim.y+sy,p:0};arrows--;$('#ar').textContent=arrows});
+$('#gr').onclick=reset;
+function draw(){t++;g.clearRect(0,0,760,400);let gr=g.createLinearGradient(0,0,0,400);gr.addColorStop(0,'#0a1428');gr.addColorStop(1,'#2d3a56');g.fillStyle=gr;g.fillRect(0,0,760,400);
+g.fillStyle='#16233f';g.beginPath();g.moveTo(0,330);[[90,170],[200,260],[330,130],[470,250],[600,150],[700,230],[760,190]].forEach(p=>g.lineTo(p[0],p[1]));g.lineTo(760,330);g.fill();
+g.fillStyle='#0d1a10';g.fillRect(0,330,760,70);
+g.strokeStyle='#8a6a3a';g.lineWidth=5;g.beginPath();g.moveTo(AX,330);g.lineTo(AX,250);g.stroke();
+g.fillStyle='#e9dfc8';g.beginPath();g.arc(AX,235,18,0,7);g.fill();g.fillStyle='#8a2a2a';g.beginPath();g.arc(AX,AY,13,0,7);g.fill();g.fillStyle='#2f7a3a';g.fillRect(AX-1,AY-19,3,8);
+g.strokeStyle='#c9a24b';g.lineWidth=4;g.beginPath();g.arc(BX+14,BY,42,-1.3,1.3);g.stroke();g.lineWidth=1;g.beginPath();g.moveTo(BX+14+42*Math.cos(-1.3),BY+42*Math.sin(-1.3));g.lineTo(BX+14+42*Math.cos(1.3),BY+42*Math.sin(1.3));g.stroke();
+const sx=Math.sin(t/17)*12,sy=Math.cos(t/23)*12;g.strokeStyle='#e8cf8a';g.lineWidth=1.5;g.beginPath();g.arc(aim.x+sx,aim.y+sy,16,0,7);g.moveTo(aim.x+sx-24,aim.y+sy);g.lineTo(aim.x+sx+24,aim.y+sy);g.moveTo(aim.x+sx,aim.y+sy-24);g.lineTo(aim.x+sx,aim.y+sy+24);g.stroke();
+if(fly){fly.p+=.06;const p=Math.min(fly.p,1),x=BX+(fly.tx-BX)*p,y=BY+(fly.ty-BY)*p-Math.sin(p*Math.PI)*30,a=Math.atan2(fly.ty-BY,fly.tx-BX);g.save();g.translate(x,y);g.rotate(a);g.strokeStyle='#e9dfc8';g.lineWidth=3;g.beginPath();g.moveTo(-34,0);g.lineTo(0,0);g.stroke();g.fillStyle='#c9a24b';g.beginPath();g.moveTo(8,0);g.lineTo(-4,-5);g.lineTo(-4,5);g.fill();g.restore();
+if(fly.p>=1){const d=Math.hypot(fly.tx-AX,fly.ty-AY);let m;if(d<=15){hits++;m='🍎 Goditje e përsosur!';$('#hit').textContent=hits}else if(d<=45)m='Shigjeta ra pranë mollës!';else m='Humbi!';$('#gm').textContent=m;stuck={x:fly.tx,y:fly.ty,a};fly=null;if(arrows===0){over=true;setTimeout(()=>$('#gm').textContent=hits>=3?`Fitove! ${hits}/5 – Vilhelm Teli do të ishte krenar.`:`${hits}/5 – Provo përsëri, miku im!`,500)}}}
+if(typeof stuck!=='undefined'&&stuck&&!fly){}
+requestAnimationFrame(draw)}
+let stuck=null;reset();draw();
+</script>
+</body>
+</html>
